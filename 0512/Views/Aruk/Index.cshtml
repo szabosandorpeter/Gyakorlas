@@ -1,0 +1,58 @@
+﻿@model _0512.Models.Arukeres
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Termék Kereső</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Új Létrehozása</a>
+</p>
+<form asp-action="Index" asp-controller="Aruk" method="get">
+    <h2>Megnevezés:</h2>
+    <input asp-for="Megnevezes" />
+
+    <h2>Beszállító:</h2>
+    <select asp-for="Beszallito" asp-items="Model.Beszallitolista">
+        <option value="">Összes</option>
+    </select>
+    <button type="submit" class="btn btn-warning">Keres</button>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AruLista[0].Megnevezes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AruLista[0].Beszallito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AruLista[0].Ar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AruLista)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Megnevezes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beszallito)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ar)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Szerklesztés</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Részletek</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Törlés</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

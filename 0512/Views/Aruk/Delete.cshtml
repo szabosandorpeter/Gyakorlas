@@ -1,0 +1,39 @@
+﻿@model _0512.Models.Aru
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Törlés</h1>
+
+<h3>Biztos Törölni szeretnéd?</h3>
+<div>
+    <h4>Aru</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Megnevezes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Megnevezes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Beszallito)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Beszallito)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ar)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-action="Index"class=" btn btn-info">Vissza</a>
+    </form>
+</div>

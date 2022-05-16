@@ -1,0 +1,36 @@
+﻿@model _0512.Models.Aru
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Részletek</h1>
+
+<div>
+    <h4>Áruk</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Megnevezes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Megnevezes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Beszallito)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Beszallito)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ar)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Szerkesztés" asp-route-id="@Model.Id"class=" btn btn-warning">Szerkeszt</a> |
+    <a asp-action="Index"class=" btn btn-info">Vissza</a>
+</div>
